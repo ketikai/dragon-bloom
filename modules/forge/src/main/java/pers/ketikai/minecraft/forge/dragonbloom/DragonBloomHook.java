@@ -13,7 +13,7 @@ public abstract class DragonBloomHook {
     public static BedrockScheme hookBedrockEmitterSetScheme(@NotNull BedrockEmitter emitter, @Nullable BedrockScheme scheme, @Nullable Map<String, String> variables) {
         String schemeKey = scheme == null ? null : scheme.identifier;
         Logger logger = DragonBloom.getLogger();
-        logger.info(() -> {
+        logger.debug(() -> {
             String variablesContent = variables == null ? null : variables.toString();
             return "hookBedrockEmitterSetScheme: { effect: '" + emitter.effect + "', bloom: '" + emitter.bloom + "', scheme: '" + schemeKey + "', variables: '" + variablesContent + "' }";
         });
