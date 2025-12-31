@@ -1,0 +1,12 @@
+def destCopyrightDir = "${projectDir}/build/resources/main/META-INF/COPYRIGHT/"
+tasks.register("copyCopyright", Copy.class) {
+    mustRunAfter(tasks.processResources)
+    from("${projectDir}/LICENSE.txt", "${projectDir}/NOTICE.txt")
+    into(destCopyrightDir)
+}
+
+tasks.register("copyDependencyCopyright", Copy.class) {
+    mustRunAfter(tasks.processResources)
+    from("${projectDir}/LICENSES/")
+    into("${destCopyrightDir}LICENSES/")
+}

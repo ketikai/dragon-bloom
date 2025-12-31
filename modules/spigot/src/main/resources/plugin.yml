@@ -1,0 +1,12 @@
+name: ${name}
+version: ${version}
+main: pers.ketikai.minecraft.spigot.dragonbloom.DragonBloom
+authors:
+- ketikai
+load: STARTUP
+depend:
+- DragonCore
+commands:
+  ${name}:
+    aliases:
+    - d-bloom

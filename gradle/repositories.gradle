@@ -1,0 +1,12 @@
+repositories {
+    mavenLocal()
+    maven {
+        name = "sonatype-public"
+        url = uri("https://oss.sonatype.org/content/groups/public/")
+    }
+    maven {
+        name = "aliyun-public"
+        url = uri("https://maven.aliyun.com/repository/public")
+    }
+    mavenCentral()
+}

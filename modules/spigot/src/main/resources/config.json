@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "includes": [
+    "dragon-bloom:test"
+  ],
+  "excludes": [
+    "test"
+  ],
+  "patterns": [
+    "^dragon-bloom:.*$",
+    "^d-bloom:.*$"
+  ]
+}

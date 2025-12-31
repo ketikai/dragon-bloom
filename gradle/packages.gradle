@@ -1,0 +1,34 @@
+tasks.jar {
+    dependsOn("copyCopyright", "copyDependencyCopyright", tasks.shadowJar)
+    enabled = false
+}
+
+tasks.shadowJar {
+    dependsOn("copyCopyright", "copyDependencyCopyright")
+    archiveClassifier.set("")
+    configurations = [
+            project.configurations.shadow
+    ]
+
+    doFirst {
+        def tagsMappings = [
+                "id"     : rootProject.name,
+                "name"   : rootProject.name,
+                "version": rootProject.version.toString()
+        ]
+        for (final def tagsMapping in tagsMappings) {
+            def pattern = '%tags_' + tagsMapping.key + '%'
+            def shadedPattern = tagsMapping.value
+            println("Relocating ${pattern} to ${shadedPattern}")
+            relocate(pattern, shadedPattern)
+        }
+
+        def prefix = "${project.group}.${rootProject.name}"
+        def patterns = [
+                "com.fasterxml.jackson."
+        ]
+        for (final def pattern in patterns) {
+            relocate(pattern, "${prefix}.${pattern}")
+        }
+    }
+}

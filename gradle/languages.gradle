@@ -1,0 +1,16 @@
+def javaLanguageVersion = 8
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(javaLanguageVersion)
+    targetCompatibility = sourceCompatibility
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(javaLanguageVersion))
+        vendor.set(JvmVendorSpec.GRAAL_VM)
+    }
+}
+
+//idea {
+//    project {
+//        languageLevel = javaLanguageVersion.toString()
+//    }
+//}
